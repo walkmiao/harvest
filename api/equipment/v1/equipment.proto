@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package equipment.v1;
+import "google/api/annotations.proto";
+option go_package = "harvest/api/equipment/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.equipment.v1";
+
+service Equipment {
+	rpc CreateEquipment (CreateEquipmentRequest) returns (CreateEquipmentReply);
+	rpc UpdateEquipment (UpdateEquipmentRequest) returns (UpdateEquipmentReply);
+	rpc DeleteEquipment (DeleteEquipmentRequest) returns (DeleteEquipmentReply);
+	rpc GetEquipment (GetEquipmentRequest) returns (GetEquipmentReply){
+		option (google.api.http) = {
+			get: "/equipment/{equip_id}",
+			// 可以添加附加接口
+		};
+	};
+	rpc ListEquipment (ListEquipmentRequest) returns (ListEquipmentReply);
+}
+
+message CreateEquipmentRequest {}
+message CreateEquipmentReply {}
+
+message UpdateEquipmentRequest {
+
+}
+message UpdateEquipmentReply {}
+
+message DeleteEquipmentRequest {}
+message DeleteEquipmentReply {}
+
+message GetEquipmentRequest {
+	int64 equip_id = 1;
+}
+message GetEquipmentReply {
+
+		int64 equip_id = 1;
+		string equip_name = 2;
+
+
+}
+
+message ListEquipmentRequest {}
+message ListEquipmentReply {}

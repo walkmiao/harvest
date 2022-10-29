@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package api.helloworld;
+
+option go_package = "harvest/api/helloworld;helloworld";
+option java_multiple_files = true;
+option java_package = "api.helloworld";
+
+service Demo {
+	rpc CreateDemo (CreateDemoRequest) returns (CreateDemoReply);
+	rpc UpdateDemo (UpdateDemoRequest) returns (UpdateDemoReply);
+	rpc DeleteDemo (DeleteDemoRequest) returns (DeleteDemoReply);
+	rpc GetDemo (GetDemoRequest) returns (GetDemoReply);
+	rpc ListDemo (ListDemoRequest) returns (ListDemoReply);
+}
+
+message CreateDemoRequest {
+	string name = 1;
+}
+message CreateDemoReply {
+	string msg = 1;
+}
+
+message UpdateDemoRequest {}
+message UpdateDemoReply {}
+
+message DeleteDemoRequest {}
+message DeleteDemoReply {}
+
+message GetDemoRequest {}
+message GetDemoReply {}
+
+message ListDemoRequest {}
+message ListDemoReply {}
